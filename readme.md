@@ -1,4 +1,5 @@
 # You don't need loops
+[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/you-dont-need/loops)
 
 Loops are bullshit. Loops are bullshit. Hey, and we have tail-call elimination ES6 (and in many other languages), which means recursion is on the menu. This list provides as many alternatives to those dreadful loops as we can. Impress your loved ones with catamorphisms, anamorphisms, bifunctors, fix points, f-algebras, co-recursion, and more. Any loop can be captured with a fold!
 
