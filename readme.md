@@ -42,6 +42,7 @@ You are welcome to contribute with more items provided below.
 | ------------------------------------------ | ---------------- | ---------------- | ---------------- | ---------------- |
 | Loops                                      | Yes :scream:     | Yes :scream:     | Yes :scream:     | Yes :scream:     |
 | Recursion (Without higher order functions) | NO :green_heart: | Yes :scream:     | NO :green_heart: | Yes :scream:     |
+| Recursion (With higher order functions)    | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 | Corecursion                                | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 | Transducers                                | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 | Monoids                                    | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
@@ -64,7 +65,6 @@ You are welcome to contribute with more items provided below.
 **[Not convinced?](#no-loops-are-easier-to-read-and-performant)**
 
 **[Recursion](#recursion)**
-:innocent: Iteration ✔ | Transformation ✔ | Accumulation ✔
 
 1. [Sum](#sum)
 1. [Reverse](#reverse)
