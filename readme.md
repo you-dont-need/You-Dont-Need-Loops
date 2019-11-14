@@ -49,7 +49,7 @@ You are welcome to contribute with more items provided below.
 | F-Algebras                                 | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 
 
-## Abilities 
+## Limitations 
 
 | Name        | Iteration | Transformation | Accumulation |
 | ----------- | --------- | -------------- | ------------ |
