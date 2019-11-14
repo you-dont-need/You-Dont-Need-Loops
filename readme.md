@@ -29,6 +29,10 @@ You are welcome to contribute with more items provided below.
 
 > &mdash;<cite>Well, this one is kinda common sense :)</cite>
 
+> If you are still writing loops, you’re not a bad person. Just think about whether you need to write loops or if there’s a better alternative. Loops are best executed at the CPU level, well-beneath the concerns of most developers.
+
+> &mdash;<cite>[Marco Emrich](https://twitter.com/marcoemrich), Software crafter, web dev, code coach, code retreat facilitator, author, consultant</cite>
+
 ## Quick Links
 
 **[Not convinced](#no-loops-are-easier-to-read-and-performant)**
