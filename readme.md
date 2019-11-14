@@ -35,21 +35,36 @@ You are welcome to contribute with more items provided below.
 
 > &mdash;<cite>[Marco Emrich](https://twitter.com/marcoemrich), Software crafter, web dev, code coach, code retreat facilitator, author, consultant</cite>
 
+
+## Potential problems :imp:
+
+| Name                                       | Off-by-one error | Infinite loop    | Statefulness     | Hidden intent    |
+| ------------------------------------------ | ---------------- | ---------------- | ---------------- | ---------------- |
+| Loops                                      | Yes :scream:     | Yes :scream:     | Yes :scream:     | Yes :scream:     |
+| Recursion (Without higher order functions) | NO :green_heart: | Yes :scream:     | NO :green_heart: | Yes :scream:     |
+| Corecursion                                | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
+| Transducers                                | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
+| Monoids                                    | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
+| F-Algebras                                 | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
+
+
+## Abilities 
+
+| Name        | Iteration | Transformation | Accumulation |
+| ----------- | --------- | -------------- | ------------ |
+| Loops       | ✔         | ✔              | ✔            |
+| Recursion   | ✔         | ✔              | ✔            |
+| Corecursion | ✔         | ✔              | ✔            |
+| Transducers | ✔         | ✔              | ✖            |
+| Monoids     | ✔         | ✖              | ✔            |
+| F-Algebras  | ✖         | ✔              | ✔            |
+
 ## Quick Links
 
 **[Not convinced?](#no-loops-are-easier-to-read-and-performant)**
 
-:innocent: Iteration ✔ | Transformation ✔ | Accumulation ✔
-
-:imp: Off-by-one error :scream: | Infinite loop :scream: | Statefulness :scream: | Hidden intent :scream:
-
 **[Recursion](#recursion)**
-
 :innocent: Iteration ✔ | Transformation ✔ | Accumulation ✔
-
-*Without higher order functions*
-
-:imp: Off-by-one error ✖ | Infinite loop :scream: | Statefulness ✖ | Hidden intent :scream:
 
 1. [Sum](#sum)
 1. [Reverse](#reverse)
@@ -57,8 +72,6 @@ You are welcome to contribute with more items provided below.
 1. [Reduce](#reduce)
 
 *[With higher order functions](#higher-order-functions)*
-
-:imp: Off-by-one error ✖ | Infinite loop ✖ | Statefulness ✖ | Hidden intent ✖
 
 1. [Sum](##sum-1)
 1. [Reverse](#reverse-1)
@@ -80,8 +93,6 @@ You are welcome to contribute with more items provided below.
 
 **[Corecursion](#corecursion)**
 
-:innocent: Iteration ✔ | Transformation ✔ | Accumulation ✔
-
 1. [Unfold](#unfold)
 1. [Range](#range)
 1. [Linked list](#linked-list)
@@ -89,15 +100,11 @@ You are welcome to contribute with more items provided below.
 
 **[Transducers](#transducers)**
 
-:innocent: Iteration ✔ | Transformation ✔ | Accumulation ✖
-
 1. [Map](#map-1)
 1. [Filter](#filter-1)
 1. [Filter and Map](#filter-and-map)
 
 **[Monoids](#monoids)**
-
-:innocent: Iteration ✔ | Transformation ✖ | Accumulation ✔
 
 1. [Sum](#sum-2)
 1. [Product](#product)
@@ -106,8 +113,6 @@ You are welcome to contribute with more items provided below.
 1. [Any](#any)
 
 **[F-Algebras](#f-algebras)**
-
-:innocent: Iteration ✖ | Transformation ✔ | Accumulation ✔
 
 1. [Catamorphism](#catamorphism)
 1. [Sum](#sum-3)
