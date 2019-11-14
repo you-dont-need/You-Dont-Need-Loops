@@ -38,9 +38,13 @@ You are welcome to contribute with more items provided below.
 ## Quick Links
 
 **[Not convinced](#no-loops-are-easier-to-read-and-performant)**
+Iteration ✔ | Transformation ✔ | Accumulation ✔
+| Off-by-one error :scream: | Infinite loop :scream: | Statefulness :scream: | Hidden intent :scream:
 
 **[Recursion](#recursion)**
 Iteration ✔ | Transformation ✔ | Accumulation ✔
+
+Off-by-one error ✖ | Infinite loop :scream: | Statefulness ✖ | Hidden intent :scream:
 
 1. [Sum](#sum)
 1. [Reverse](#reverse)
@@ -48,6 +52,7 @@ Iteration ✔ | Transformation ✔ | Accumulation ✔
 1. [Reduce](#reduce)
 
 *[With higher order functions](#higher-order-functions)*
+Off-by-one error ✖ | Infinite loop ✖ | Statefulness ✖ | Hidden intent ✖
 
 1. [Sum](##sum-1)
 1. [Reverse](#reverse-1)
