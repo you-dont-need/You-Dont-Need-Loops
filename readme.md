@@ -7,7 +7,7 @@ Loops are bullshit. Loops are bullshit. Hey, and we have tail-call elimination E
 
 (so many puns!)
 
-Although they are one of the first constructs that junior programmers learn, loops can pose many potential issues the software development process, and could be avoided in any case.
+Although they are one of the first constructs that junior programmers learn, loops can pose many potential issues in the software development process, and could be avoided in any case.
 
 You are welcome to contribute with more items provided below.
 
@@ -42,8 +42,8 @@ You are welcome to contribute with more items provided below.
 | Name                                       | Off-by-one error | Infinite loop    | Statefulness     | Hidden intent    |
 | ------------------------------------------ | ---------------- | ---------------- | ---------------- | ---------------- |
 | Loops                                      | Yes :scream:     | Yes :scream:     | Yes :scream:     | Yes :scream:     |
-| Recursion (Without higher order functions) | NO :green_heart: | Yes :scream:     | NO :green_heart: | Yes :scream:     |
-| Recursion (With higher order functions)    | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
+| Recursion (Without higher-order functions) | NO :green_heart: | Yes :scream:     | NO :green_heart: | Yes :scream:     |
+| Recursion (With higher-order functions)    | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 | Corecursion                                | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 | Transducers                                | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 | Monoids                                    | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
@@ -72,7 +72,7 @@ You are welcome to contribute with more items provided below.
 1. [Tail recursive sum](#tail-recursive-sum)
 1. [Reduce](#reduce)
 
-*[With higher order functions](#higher-order-functions)*
+*[With higher-order functions](#higher-order-functions)*
 
 1. [Sum](##sum-1)
 1. [Reverse](#reverse-1)
@@ -122,7 +122,7 @@ You are welcome to contribute with more items provided below.
 1. [arrToList](#arrToList)
 1. [makeAlphabet](#makeAlphabet)
 1. [range](#range-1)
-1. [Real world examples](#real-world-examples)
+1. [Real-world examples](#real-world-examples)
 
 ## No, loops are easier to read and performant
 
@@ -136,11 +136,11 @@ const norm2 = (x, n) => {
 }
 ```
 
-This code is very clear, and performs well, but we've entirely lost modularity. In this case the code is very short, so we don't give the compromise a second thought. But at a larger scale, this kind of manual optimization reduces code reuse and makes components more complex. Code becomes harder to understand, and harder to test for correctness.
+This code is very clear and performs well, but we've entirely lost modularity. In this case, the code is very short, so we don't give the compromise a second thought. But at a larger scale, this kind of manual optimization reduces code reuse and makes components more complex. Code becomes harder to understand, and harder to test for correctness.
 
-But what about performance of recursions?
+But what about the performance of recursions?
 
-In tail recursion, you perform your calculations first, and then you execute the recursive call, passing the results of your current step to the next recursive step. This results in the last statement being in the form of (return (recursive-function params)). Basically, the return value of any given recursive step is the same as the return value of the next recursive call. The consequence of this is that once you are ready to perform your next recursive step, you don't need the current stack frame any more.
+In tail recursion, you perform your calculations first, and then you execute the recursive call, passing the results of your current step to the next recursive step. This results in the last statement being in the form of (return (recursive-function params)). Basically, the return value of any given recursive step is the same as the return value of the next recursive call. The consequence of this is that once you are ready to perform your next recursive step, you don't need the current stack frame anymore.
 
 ## Recursion
 
@@ -200,7 +200,7 @@ const reduce = (f, acc, xs) =>
 
 **[⬆ back to top](#quick-links)**
 
-## Higher order functions
+## Higher-order functions
 
 Recursion is too low-level. Not low-level in the sense of direct access to the machine but low-level in the sense of language design and abstraction. **Both loops and recursions do a poor job of signalling intent.** This is where **higher-order functions** come in. Map, filter, fold and friends package up common recursive patterns into library functions that are easier to use than direct recursion and signal intent.
 
@@ -611,7 +611,7 @@ range(2, 10)
 
 **[⬆ back to top](#quick-links)**
 
-### Real world examples
+### Real-world examples
 
 ```js
 const _Const = function(val) { this.val = val }
