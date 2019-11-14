@@ -6,6 +6,8 @@ Loops are bullshit. Loops are bullshit. Hey, and we have tail-call elimination E
 
 (so many puns!)
 
+Although they are one of the first constructs that junior programmers learn, loops can pose many potential issues the software development process, and could be avoided in any case.
+
 You are welcome to contribute with more items provided below.
 
 * Please send a PR if you want to add or modify the code. No need to open an issue unless it's something big and you want to discuss.
