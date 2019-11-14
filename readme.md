@@ -37,14 +37,19 @@ You are welcome to contribute with more items provided below.
 
 ## Quick Links
 
-**[Not convinced](#no-loops-are-easier-to-read-and-performant)**
-Iteration ✔ | Transformation ✔ | Accumulation ✔
-| Off-by-one error :scream: | Infinite loop :scream: | Statefulness :scream: | Hidden intent :scream:
+**[Not convinced?](#no-loops-are-easier-to-read-and-performant)**
+
+:innocent: Iteration ✔ | Transformation ✔ | Accumulation ✔
+
+:imp: Off-by-one error :scream: | Infinite loop :scream: | Statefulness :scream: | Hidden intent :scream:
 
 **[Recursion](#recursion)**
-Iteration ✔ | Transformation ✔ | Accumulation ✔
 
-Off-by-one error ✖ | Infinite loop :scream: | Statefulness ✖ | Hidden intent :scream:
+:innocent: Iteration ✔ | Transformation ✔ | Accumulation ✔
+
+*Without higher order functions*
+
+:imp: Off-by-one error ✖ | Infinite loop :scream: | Statefulness ✖ | Hidden intent :scream:
 
 1. [Sum](#sum)
 1. [Reverse](#reverse)
@@ -52,7 +57,8 @@ Off-by-one error ✖ | Infinite loop :scream: | Statefulness ✖ | Hidden intent
 1. [Reduce](#reduce)
 
 *[With higher order functions](#higher-order-functions)*
-Off-by-one error ✖ | Infinite loop ✖ | Statefulness ✖ | Hidden intent ✖
+
+:imp: Off-by-one error ✖ | Infinite loop ✖ | Statefulness ✖ | Hidden intent ✖
 
 1. [Sum](##sum-1)
 1. [Reverse](#reverse-1)
@@ -73,7 +79,8 @@ Off-by-one error ✖ | Infinite loop ✖ | Statefulness ✖ | Hidden intent ✖
 1. [Paramorphism](#paramorphism)
 
 **[Corecursion](#corecursion)**
-Iteration ✔ | Transformation ✔ | Accumulation ✔
+
+:innocent: Iteration ✔ | Transformation ✔ | Accumulation ✔
 
 1. [Unfold](#unfold)
 1. [Range](#range)
@@ -81,14 +88,16 @@ Iteration ✔ | Transformation ✔ | Accumulation ✔
 1. [Tree](#tree)
 
 **[Transducers](#transducers)**
-Iteration ✔ | Transformation ✔ | Accumulation ✖
+
+:innocent: Iteration ✔ | Transformation ✔ | Accumulation ✖
 
 1. [Map](#map-1)
 1. [Filter](#filter-1)
 1. [Filter and Map](#filter-and-map)
 
 **[Monoids](#monoids)**
-Iteration ✔ | Transformation ✖ | Accumulation ✔
+
+:innocent: Iteration ✔ | Transformation ✖ | Accumulation ✔
 
 1. [Sum](#sum-2)
 1. [Product](#product)
@@ -97,7 +106,8 @@ Iteration ✔ | Transformation ✖ | Accumulation ✔
 1. [Any](#any)
 
 **[F-Algebras](#f-algebras)**
-Iteration ✖ | Transformation ✔ | Accumulation ✔
+
+:innocent: Iteration ✖ | Transformation ✔ | Accumulation ✔
 
 1. [Catamorphism](#catamorphism)
 1. [Sum](#sum-3)
@@ -127,6 +137,8 @@ But what about performance of recursions?
 In tail recursion, you perform your calculations first, and then you execute the recursive call, passing the results of your current step to the next recursive step. This results in the last statement being in the form of (return (recursive-function params)). Basically, the return value of any given recursive step is the same as the return value of the next recursive call. The consequence of this is that once you are ready to perform your next recursive step, you don't need the current stack frame any more.
 
 ## Recursion
+
+You can immediately avoid off-by-one error and state by using recursions.
 
 Let's define some helper functions:
 
