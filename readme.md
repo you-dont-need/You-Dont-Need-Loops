@@ -74,7 +74,7 @@ You are welcome to contribute with more items provided below.
 
 *[With higher-order functions](#higher-order-functions)*
 
-1. [Sum](##sum-1)
+1. [Sum](#sum-1)
 1. [Reverse](#reverse-1)
 1. [Map](#map)
 1. [Filter](#filter)
