@@ -130,10 +130,6 @@ const norm2 = (x, n) => {
 
 This code is very clear and performs well, but we've entirely lost modularity. In this case, the code is very short, so we don't give the compromise a second thought. But at a larger scale, this kind of manual optimization reduces code reuse and makes components more complex. Code becomes harder to understand, and harder to test for correctness.
 
-But what about the performance of recursions?
-
-In tail recursion, you perform your calculations first, and then you execute the recursive call, passing the results of your current step to the next recursive step. This results in the last statement being in the form of (return (recursive-function params)). Basically, the return value of any given recursive step is the same as the return value of the next recursive call. The consequence of this is that once you are ready to perform your next recursive step, you don't need the current stack frame anymore.
-
 ## Higher-order functions
 
 Let's define reduce first. *NOTE*: `reduce` was originally defined using recursion technique (which immediately avoids off-by-one error and state). Since only Safari supports it will cause stack overflow in most JavaScript environments. Using a loop is a good compromise here.
