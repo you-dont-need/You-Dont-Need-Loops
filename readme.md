@@ -1,7 +1,7 @@
 # You don't need loops
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/you-dont-need/loops)
 
-Loops are bullshit. Loops are bullshit. Hey, and we have tail-call elimination ES6 (and in many other languages), which means recursion is on the menu. This list provides as many alternatives to those dreadful loops as we can. Impress your loved ones with catamorphisms, anamorphisms, bifunctors, fix points, f-algebras, co-recursion, and more. Any loop can be captured with a fold!
+Loops are bullshit. Loops are bullshit. This list provides as many alternatives to those dreadful loops as we can. Impress your loved ones with catamorphisms, anamorphisms, bifunctors, fix points, f-algebras, co-recursion, and more. Any loop can be captured with a fold!
 
 ![Any loop can be captured with a fold!](./loop-captured-with-fold.png)
 
@@ -42,8 +42,7 @@ You are welcome to contribute with more items provided below.
 | Name                                       | Off-by-one error | Infinite loop    | Statefulness     | Hidden intent    |
 | ------------------------------------------ | ---------------- | ---------------- | ---------------- | ---------------- |
 | Loops                                      | Yes :scream:     | Yes :scream:     | Yes :scream:     | Yes :scream:     |
-| Recursion (Without higher-order functions) | NO :green_heart: | Yes :scream:     | NO :green_heart: | Yes :scream:     |
-| Recursion (With higher-order functions)    | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
+| Higher-order functions                     | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 | Corecursion                                | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 | Transducers                                | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 | Monoids                                    | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
@@ -52,27 +51,20 @@ You are welcome to contribute with more items provided below.
 
 ## Limitations 
 
-| Name        | Iteration | Transformation | Accumulation |
-| ----------- | --------- | -------------- | ------------ |
-| Loops       | ✔         | ✔              | ✔            |
-| Recursion   | ✔         | ✔              | ✔            |
-| Corecursion | ✔         | ✔              | ✔            |
-| Transducers | ✔         | ✔              | ✖            |
-| Monoids     | ✔         | ✖              | ✔            |
-| F-Algebras  | ✖         | ✔              | ✔            |
+| Name                   | Iteration | Transformation | Accumulation |
+| ---------------------- | --------- | -------------- | ------------ |
+| Loops                  | ✔         | ✔              | ✔            |
+| Higher-order functions | ✔         | ✔              | ✔            |
+| Corecursion            | ✔         | ✔              | ✔            |
+| Transducers            | ✔         | ✔              | ✖            |
+| Monoids                | ✔         | ✖              | ✔            |
+| F-Algebras             | ✖         | ✔              | ✔            |
 
 ## Quick Links
 
 **[Not convinced?](#no-loops-are-easier-to-read-and-performant)**
 
-**[Recursion](#recursion)**
-
-1. [Sum](#sum)
-1. [Reverse](#reverse)
-1. [Tail recursive sum](#tail-recursive-sum)
-1. [Reduce](#reduce)
-
-*[With higher-order functions](#higher-order-functions)*
+**[Higher-order functions](#higher-order-functions)**
 
 1. [Sum](#sum-1)
 1. [Reverse](#reverse-1)
@@ -142,65 +134,18 @@ But what about the performance of recursions?
 
 In tail recursion, you perform your calculations first, and then you execute the recursive call, passing the results of your current step to the next recursive step. This results in the last statement being in the form of (return (recursive-function params)). Basically, the return value of any given recursive step is the same as the return value of the next recursive call. The consequence of this is that once you are ready to perform your next recursive step, you don't need the current stack frame anymore.
 
-## Recursion
+## Higher-order functions
 
-You can immediately avoid off-by-one error and state by using recursions.
-
-Let's define some helper functions:
+Let's define reduce first. *NOTE*: `reduce` was originally defined using recursion technique (which immediately avoids off-by-one error and state). Since only Safari supports it will cause stack overflow in most JavaScript environments. Using a loop is a good compromise here.
 
 ```js
-const first = xs => xs[0]
-const rest = xs => xs.slice(1)
-```
-
-### Sum
-
-```js
-const sum = xs =>
-  xs.length === 0
-    ? 0
-    : first(xs) + sum(rest(xs));
-```
-
-**[⬆ back to top](#quick-links)**
-
-### Reverse
-
-```js
-const reverse = xs => 
-  xs.length === 0
-    ? []
-    : reverse(rest(xs)).concat(first(xs));
-```
-
-**[⬆ back to top](#quick-links)**
-
-### Tail recursive sum
-
-```js
-const sum = list => {
-  const go = (acc, xs) =>
-    xs.length === 0
-      ? acc
-      : go(acc + first(xs), rest(xs));
-  return go(0, list) 
+const reduce = function(iterable, reduceFn, accumulator){
+  for (let i of iterable){
+    accumulator = reduceFn(accumulator, i)
+  }
+  return accumulator
 }
 ```
-
-**[⬆ back to top](#quick-links)**
-
-### Reduce
-
-```js
-const reduce = (f, acc, xs) =>
-  xs.length === 0
-    ? acc
-    : reduce(f, f(acc, first(xs)), rest(xs));
-```
-
-**[⬆ back to top](#quick-links)**
-
-## Higher-order functions
 
 Recursion is too low-level. Not low-level in the sense of direct access to the machine but low-level in the sense of language design and abstraction. **Both loops and recursions do a poor job of signalling intent.** This is where **higher-order functions** come in. Map, filter, fold and friends package up common recursive patterns into library functions that are easier to use than direct recursion and signal intent.
 
