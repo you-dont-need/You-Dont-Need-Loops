@@ -135,7 +135,7 @@ This code is very clear and performs well, but we've entirely lost modularity. I
 Let's define `reduce` first. *NOTE*: `reduce` was originally defined using recursion technique (which immediately avoids off-by-one error and state). [Since only Safari supports tail call optimization](https://dev.to/snird/recursion-optimization-in-js-where-is-it-ptc-tco-and-fud-4fka), it will cause stack overflow in most JavaScript environments. Using a loop is a good compromise here.
 
 ```js
-const reduce = function(iterable, reduceFn, accumulator){
+const reduce = function(reduceFn, accumulator, iterable){
   for (let i of iterable){
     accumulator = reduceFn(accumulator, i)
   }
