@@ -1,11 +1,63 @@
 # You don't need loops
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/you-dont-need/loops)
 
-Loops are bullshit. Loops are bullshit. This list provides as many alternatives to those dreadful loops as we can. Impress your loved ones with catamorphisms, anamorphisms, bifunctors, fix points, f-algebras, co-recursion, and more. Any loop can be captured with a fold!
+Prerequisites: 
 
-![Any loop can be captured with a fold!](./loop-captured-with-fold.png)
+<small>
+You must not mutate variables
+</small>
 
-(so many puns!)
+<details>
+Consider this:
+
+```js
+let foo = 'foo'
+
+// later on the requestment changed and you mutate it
+
+foo = 'bar'
+
+// you need to refactor the code but you forgot you mutate it, 
+// if you are lucky you unit test this but still makes the refactoring hard.
+// your code is not modular then :(
+```
+
+There are many other downsides of [mutations](https://reactjs.org/docs/optimizing-performance.html#the-power-of-not-mutating-data). EG: Cannot GC efficiently or do [formal proofs](https://stackoverflow.com/questions/4077970/can-haskell-functions-be-proved-model-checked-verified-with-correctness-properti), etc.
+</details>
+
+<small>
+When to use loops
+</small>
+
+<details>
+When you work with hardware. If you only want to develop apps, you don't think about hardware because it's too low level. Just like event loop abstracts away threads, GC abstract away pointers, recursion also abstracts away loops, and so we can use higher order functions to write [wholemeal programming](https://stackoverflow.com/questions/6957270/what-is-wholemeal-in-functional-programming).
+</details>
+
+<small>
+Complexity?
+</small>
+
+<details>
+In a abstract world, it's almost impossible to reason about complexity because it's too far from how computers actually work. On the same note, it's very hard to reason about memory management with languages with GC and threads with event loops. There are many things compilers do to improve the performance, including tail recursion optimization (not in JS yet so I removed it) and map fusion (only in pure languages so don't bother mentioning it), etc. Writing code in a readable, maintainable and modular way is far more important in modern engineering teams.
+</details>
+
+<small>
+Why using ternary instead of `if`/`else`?
+</small>
+
+<details>
+Pretty much the same reason why loop sucks. There's no if expression in JS and so ternary is the expression. Consider this:
+
+```js
+if (something) {
+  // what can you actually do here without interacting with stuff outside of this if block?
+}
+```
+
+Then this is impure, causes side effects and is hard to reason about.
+</details>
+
+Loops are bullshit. Loops are bullshit. Let's embrace [wholemeal programming](https://stackoverflow.com/questions/6957270/what-is-wholemeal-in-functional-programming)! This list provides as many alternatives to those dreadful loops as we can. Impress your loved ones with catamorphisms, anamorphisms, bifunctors, fix points, f-algebras, co-recursion, and more. Any loop can be captured with a fold! (so many puns!)
 
 Although they are one of the first constructs that junior programmers learn, loops can pose many potential issues in the software development process, and could be avoided in any case.
 
