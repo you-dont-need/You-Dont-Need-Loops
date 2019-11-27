@@ -6,6 +6,7 @@
 ### You must not mutate variables
 
 <details>
+
 Consider this:
 
 ```js
@@ -21,23 +22,29 @@ foo = 'bar'
 ```
 
 There are many other downsides of [mutations](https://reactjs.org/docs/optimizing-performance.html#the-power-of-not-mutating-data). EG: Cannot GC efficiently or do [formal proofs](https://stackoverflow.com/questions/4077970/can-haskell-functions-be-proved-model-checked-verified-with-correctness-properti), etc.
+
 </details>
 
 ### When to use loops
 
 <details>
+
 When you work with hardware. If you only want to develop apps, you don't think about hardware because it's too low level. Just like event loop abstracts away threads, GC abstract away pointers, recursion also abstracts away loops, and so we can use higher order functions to write [wholemeal programming](https://stackoverflow.com/questions/6957270/what-is-wholemeal-in-functional-programming).
+
 </details>
 
 ### Complexity?
 
 <details>
+
 In a abstract world, it's almost impossible to reason about complexity because it's too far from how computers actually work. On the same note, it's very hard to reason about memory management with languages with GC and threads with event loops. There are many things compilers do to improve the performance, including tail recursion optimization (not in JS yet so I removed it) and map fusion (only in pure languages so don't bother mentioning it), etc. Writing code in a readable, maintainable and modular way is far more important in modern engineering teams.
+
 </details>
 
 ### Why using ternary instead of `if`/`else`?
 
 <details>
+
 Pretty much the same reason why loop sucks. There's no if expression in JS and so ternary is the expression. Consider this:
 
 ```js
@@ -47,6 +54,7 @@ if (something) {
 ```
 
 Then this is impure, causes side effects and is hard to reason about.
+
 </details>
 
 Loops are bullshit. Loops are bullshit. Let's embrace [wholemeal programming](https://stackoverflow.com/questions/6957270/what-is-wholemeal-in-functional-programming)! This list provides as many alternatives to those dreadful loops as we can. Impress your loved ones with catamorphisms, anamorphisms, bifunctors, fix points, f-algebras, co-recursion, and more. Any loop can be captured with a fold! (so many puns!)
