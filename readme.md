@@ -42,7 +42,8 @@ You are welcome to contribute with more items provided below.
 | Name                                       | Off-by-one error | Infinite loop    | Statefulness     | Hidden intent    |
 | ------------------------------------------ | ---------------- | ---------------- | ---------------- | ---------------- |
 | Loops                                      | Yes :scream:     | Yes :scream:     | Yes :scream:     | Yes :scream:     |
-| Higher-order functions                     | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
+| Recursion (Without higher-order functions) | NO :green_heart: | Yes :scream:     | NO :green_heart: | Yes :scream:     |
+| Recursion (With higher-order functions)    | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 | Corecursion                                | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 | Transducers                                | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 | Monoids                                    | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
@@ -54,7 +55,7 @@ You are welcome to contribute with more items provided below.
 | Name                   | Iteration | Transformation | Accumulation |
 | ---------------------- | --------- | -------------- | ------------ |
 | Loops                  | ✔         | ✔              | ✔            |
-| Higher-order functions | ✔         | ✔              | ✔            |
+| Recursion              | ✔         | ✔              | ✔            |
 | Corecursion            | ✔         | ✔              | ✔            |
 | Transducers            | ✔         | ✔              | ✖            |
 | Monoids                | ✔         | ✖              | ✔            |
@@ -64,7 +65,14 @@ You are welcome to contribute with more items provided below.
 
 **[Not convinced?](#no-loops-are-easier-to-read-and-performant)**
 
-**[Higher-order functions](#higher-order-functions)**
+**[Recursion](#recursion)**
+
+1. [Sum](#sum)
+1. [Reverse](#reverse)
+1. [Tail recursive sum](#tail-recursive-sum)
+1. [Reduce](#reduce)
+
+*[With higher-order functions](#higher-order-functions)*
 
 1. [Sum](#sum-1)
 1. [Reverse](#reverse-1)
@@ -130,9 +138,63 @@ const norm2 = (x, n) => {
 
 This code is very clear and performs well, but we've entirely lost modularity. In this case, the code is very short, so we don't give the compromise a second thought. But at a larger scale, this kind of manual optimization reduces code reuse and makes components more complex. Code becomes harder to understand, and harder to test for correctness.
 
-## Higher-order functions
+## Recursion
 
-Let's define `reduce` first. *NOTE*: `reduce` was originally defined using recursion technique (which immediately avoids off-by-one error and state). [Since only Safari supports tail call optimization](https://dev.to/snird/recursion-optimization-in-js-where-is-it-ptc-tco-and-fud-4fka), it will cause stack overflow in most JavaScript environments. Using a loop is a good compromise here.
+You can immediately avoid off-by-one error and state by using recursions.
+
+Let's define some helper functions:
+
+```js
+const first = xs => xs[0]
+const rest = xs => xs.slice(1)
+```
+
+### Sum
+
+```js
+const sum = xs =>
+  xs.length === 0
+    ? 0
+    : first(xs) + sum(rest(xs));
+```
+
+**[⬆ back to top](#quick-links)**
+
+### Reverse
+
+```js
+const reverse = xs => 
+  xs.length === 0
+    ? []
+    : reverse(rest(xs)).concat(first(xs));
+```
+
+**[⬆ back to top](#quick-links)**
+
+### Tail recursive sum
+
+```js
+const sum = list => {
+  const go = (acc, xs) =>
+    xs.length === 0
+      ? acc
+      : go(acc + first(xs), rest(xs));
+  return go(0, list) 
+
+```
+
+**[⬆ back to top](#quick-links)**
+
+### Reduce
+
+```js
+const reduce = (f, acc, xs) =>
+  xs.length === 0
+    ? acc
+    : reduce(f, f(acc, first(xs)), rest(xs));
+```
+
+NOTE: Since only Safari supports tail call optimization, it will cause stack overflow in most JavaScript environments. You might want to use a loop here to compromise.
 
 ```js
 const reduce = function(reduceFn, accumulator, iterable){
@@ -142,6 +204,10 @@ const reduce = function(reduceFn, accumulator, iterable){
   return accumulator
 }
 ```
+
+**[⬆ back to top](#quick-links)**
+
+## Higher-order functions
 
 Recursion is too low-level. Not low-level in the sense of direct access to the machine but low-level in the sense of language design and abstraction. **Both loops and recursions do a poor job of signalling intent.** This is where **higher-order functions** come in. Map, filter, fold and friends package up common recursive patterns into library functions that are easier to use than direct recursion and signal intent.
 
