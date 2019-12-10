@@ -194,7 +194,7 @@ const reduce = (f, acc, xs) =>
     : reduce(f, f(acc, first(xs)), rest(xs));
 ```
 
-NOTE: Since only Safari supports tail call optimization, it will cause stack overflow in most JavaScript environments. You might want to use a loop here to compromise.
+NOTE: Since tail call optimization is currently only supported by Safari, [tail recursion](https://stackoverflow.com/questions/33923/what-is-tail-recursion) may cause stack overflow in most other JavaScript environments. While others, such as [the Chrome devs](https://bugs.chromium.org/p/v8/issues/detail?id=4698#c75), appear to be discussing the subject on-and-off, you may wish to, in this case, use a loop here to compromise:
 
 ```js
 const reduce = function(reduceFn, accumulator, iterable){
