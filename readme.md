@@ -4,7 +4,7 @@
 ## Prerequisites: 
 
 You don't have to understand all the details of the jargons in this article, but rather get an overall intuition on how you could abstract things so that they can compose well. There are many other articles that explain the basics of functional programming (EG: why ternary is used instead of `if`s, why you shouldn't mutate variables and Complexity/TCO) already and these are out of the scope of this article. Following similar format of other [You Don't Need
-](https://github.com/you-dont-need) articles, this one lists some sample code that could help you to replace/avoid loops in different situations. If you don't know anything about functional programming, You can start learn it [here](https://www.seas.upenn.edu/~cis194/spring13/lectures.html). This course is widely recommended by Haskell learners.
+](https://github.com/you-dont-need) articles, this one lists some sample code that could help you to replace/avoid loops in different situations. If you don't know anything about functional programming, you can start learn it [here](https://www.seas.upenn.edu/~cis194/spring13/lectures.html). This course is widely recommended by Haskell learners.
 
 ---
 
