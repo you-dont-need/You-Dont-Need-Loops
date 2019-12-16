@@ -3,7 +3,10 @@
 
 ## Prerequisites: 
 
-You need to understand the basics of functional programming. You can start learn it [here](https://www.seas.upenn.edu/~cis194/spring13/lectures.html). This course is widely recommended by Haskell learners.
+You don't have to understand all the details of the jargons in this article, but rather get an overall intuition on how you could abstract things so that they can compose well. There are many other articles that explain the basics of functional programming (EG: why ternary is used instead of `if`s, why you shouldn't mutate variables and Complexity/TCO) already and these are out of the scope of this article. Following similar format of other [You Don't Need
+](https://github.com/you-dont-need) articles, this one lists some sample code that could help you to replace/avoid loops in different situations. If you don't know anything about functional programming, You can start learn it [here](https://www.seas.upenn.edu/~cis194/spring13/lectures.html). This course is widely recommended by Haskell learners.
+
+---
 
 Loops are bullshit. Loops are bullshit. Let's embrace [wholemeal programming](https://stackoverflow.com/questions/6957270/what-is-wholemeal-in-functional-programming)! This list provides as many alternatives to those dreadful loops as we can. Impress your loved ones with catamorphisms, anamorphisms, bifunctors, fix points, f-algebras, co-recursion, and more. Any loop can be captured with a fold! (so many puns!)
 
