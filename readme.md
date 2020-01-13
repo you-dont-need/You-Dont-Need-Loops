@@ -287,9 +287,9 @@ const para = (f, acc, xs) =>
 const unfold = (f, seed) => {
   const next = (f, val, acc) => {
     if (!f(val)) return acc
-    const [currVal, nextVal] = f(val);
-    acc.push(currVal)
-    return next(f, nextVal, acc); 
+    const resVal = f(val);
+    acc.push(resVal[0])
+    return next(f, resVal[1], acc); 
   }
   return next(f, seed, [])
 }
