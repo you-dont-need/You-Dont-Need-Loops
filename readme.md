@@ -1,11 +1,11 @@
-# You don't need loops :loop:
+# You don't (may not) need loops :loop:
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/you-dont-need/loops)
 
 ## Prerequisites: 
 
 Loops are one of the first constructs that junior programmers learn, but they can pose many potential issues in the software development process, and could be avoided in many cases.
 
-Loops include `for`, `while`, `do`, `for...of` and `for...in`. You might argue that built in array methods such as `map` or `reduce` also uses loops. Well that's true, so we are going to define our own. It's good to start from nothing and understand the principles. The performance won't be great, you ask. Yes I heard you, and please read on for now.
+Loops include `for`, `forEach`, `while`, `do`, `for...of` and `for...in`. You might argue that built in array methods such as `map` or `reduce` also uses loops. Well that's true, so we are going to define our own. In real life, you’d use a library or built in array methods, but it's good to start from scratch and understand the principles. The performance won't be great, you ask. Yes I heard you, and please read on for now.
 
 JavaScript is about trade-offs. There’s a tension between writing code that is performant, code that is maintainable and easy to understand, and code that is correct by construction. It's probably very hard to balance them and that's the source of debates in your pull requests.
 
@@ -27,7 +27,7 @@ You can write the most performant code with loops and everything. But is it stil
 
 *Keep in mind that your code will **CHANGE** and will be **read by your colleagues**. If you write throw away code, don't bother worry about these at all.*
 
-So, it's all about balancing the triangle. In modern engineering teams, 95% of the time you'd sacrifice performance for correctness and ergonomics since computers are fast enough and premature optimization is usually considered bad. But to replace loops, there will be huge performance hit and even stack overflow. The point of this article is to show you the ideal code to understand the principles. We focus more on correctness and ergonomics, and in real-world projects, you'll need to use your best knowledge to do the trade-offs. If you are interested in striving not to sacrefice any of these three, have a look at [Haskell](https://www.seas.upenn.edu/~cis194/spring13/lectures.html). It is designed from the ground up to be highly performant in FP. 
+So, it's all about balancing the triangle. In modern engineering teams, 95% of the time you'd sacrifice performance for correctness and ergonomics since computers are fast enough and premature optimization is usually considered bad. But to replace loops, there will be huge performance hit and even stack overflow. While all three point are equally important, this article focuses more on correctness and ergonomics, and in real-world projects, you'll need to use your best knowledge to do the trade-offs. If you are interested in striving not to sacrefice any of these three, have a look at [Haskell](https://www.seas.upenn.edu/~cis194/spring13/lectures.html). It is designed from the ground up to be highly performant in FP. 
 
 We do expect you to know some very basic stuff about functional programming and there are many other articles online (EG: why ternary is used instead of `if`s, why you shouldn't mutate variables and Complexity/TCO, etc).
 
