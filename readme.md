@@ -3,14 +3,33 @@
 
 ## Prerequisites: 
 
-You don't have to understand all the details of the jargons in this article, but rather get an overall intuition on how you could abstract things so that they can compose well. However, we do expect you to know some basic stuff about functional programming and there are many other articles online (EG: why ternary is used instead of `if`s, why you shouldn't mutate variables and Complexity/TCO) already and these are out of the scope of this article. Following similar format of other [You Don't Need
-](https://github.com/you-dont-need) articles, this one lists some sample code that could help you to replace/avoid loops in different situations. If you don't know anything about functional programming, you can start learn it [here](https://www.seas.upenn.edu/~cis194/spring13/lectures.html). This course is widely recommended by Haskell learners.
+Loops are one of the first constructs that junior programmers learn, but they can pose many potential issues in the software development process, and could be avoided in many cases.
 
----
+Loops include `for`, `while`, `do`, `for...of` and `for...in`. You might argue that built in array methods such as `map` or `reduce` also uses loops. Well that's true, so we are going to define our own. It's good to start from nothing and understand the principles. The performance won't be great, you ask. Yes I heard you, and please read on for now.
 
-Loops are bullshit. Loops are bullshit. Let's embrace [wholemeal programming](https://stackoverflow.com/questions/6957270/what-is-wholemeal-in-functional-programming)! This list provides as many alternatives to those dreadful loops as we can. Impress your loved ones with catamorphisms, anamorphisms, bifunctors, fix points, f-algebras, co-recursion, and more. Any loop can be captured with a fold! (so many puns!)
+JavaScript is about trade-offs. There’s a tension between writing code that is performant, code that is maintainable and easy to understand, and code that is correct by construction. It's probably very hard to balance them and that's the source of debates in your pull requests.
 
-Although they are one of the first constructs that junior programmers learn, loops can pose many potential issues in the software development process, and could be avoided in any case.
+### Correctness by construction
+
+> Simple English: No bugs
+
+Loops have four main problems: [Off-by-one error](https://en.wikipedia.org/wiki/Off-by-one_error), [Infinite loop](https://en.wikipedia.org/wiki/Infinite_loop), Statefulness and Hidden intent. You might argue loops like `for...in` won't have Off-by-one error, yes but it's still stateful and can hide intent. Recursions have some of the problems too.
+
+### Ergonomics and maintainability
+
+> Simple English: No refactoring
+
+Many developers hate it when there's change of requirements, because they have spent so much time on writing performant and bug-free code. When there's new requirements, you'll have to restructure your code and update your unit tests. Can you move your loops freely in your codebase? probably not, because there must be side effects or mutations. [Wholemeal programming](https://www.quora.com/What-is-wholemeal-programming) is a nice pattern to make code modular and reusable.
+
+### Runtime performance
+
+You can write the most performant code with loops and everything. But is it still performant when there's change of requirements? Is your performant code understandable by other people? Is your code still performant once you've refactored your code? At a larger scale, Manual optimization reduces code reusability, modularity and makes components more complex. Code becomes harder to understand, and harder to test for correctness.
+
+*Keep in mind that your code will **CHANGE** and will be **read by your colleagues**. If you write throw away code, don't bother worry about these at all.*
+
+So, it's all about balancing the triangle. In modern engineering teams, 95% of the time you'd sacrifice performance for correctness and ergonomics since computers are fast enough and premature optimization is usually considered bad. But to replace loops, there will be huge performance hit and even stack overflow. The point of this article is to show you the ideal code to understand the principles. We focus more on correctness and ergonomics, and in real-world projects, you'll need to use your best knowledge to do the trade-offs. If you are interested in striving not to sacrefice any of these three, have a look at [Haskell](https://www.seas.upenn.edu/~cis194/spring13/lectures.html). It is designed from the ground up to be highly performant in FP. 
+
+We do expect you to know some very basic stuff about functional programming and there are many other articles online (EG: why ternary is used instead of `if`s, why you shouldn't mutate variables and Complexity/TCO, etc).
 
 You are welcome to contribute with more items provided below.
 
@@ -65,8 +84,6 @@ You are welcome to contribute with more items provided below.
 | F-Algebras             | ✖         | ✔              | ✔            |
 
 ## Quick Links
-
-**[Not convinced?](#no-loops-are-easier-to-read-and-performant)**
 
 **[Recursion](#recursion)**
 
@@ -127,20 +144,6 @@ You are welcome to contribute with more items provided below.
 1. [range](#range-1)
 1. [Real-world examples](#real-world-examples)
 
-## No, loops are easier to read and performant
-
-```js
-const norm2 = (x, n) => {
-  let theSum = 0;
-  for (let i = 0; i < n; i++) { 
-    theSum += x[i] * x[i]; 
-  }
-  return Math.sqrt(theSum);
-}
-```
-
-This code is very clear and performs well, but we've entirely lost modularity. In this case, the code is very short, so we don't give the compromise a second thought. But at a larger scale, this kind of manual optimization reduces code reuse and makes components more complex. Code becomes harder to understand, and harder to test for correctness.
-
 ## Recursion
 
 You can immediately avoid off-by-one error and state by using recursions.
@@ -151,6 +154,8 @@ Let's define some helper functions:
 const first = xs => xs[0]
 const rest = xs => xs.slice(1)
 ```
+
+*NOTE:* functions like this could be defined with `reduce` too, but you can easily hit stack overflow. For all intensions and purposes let's use existing array methods.
 
 ### Sum
 
@@ -197,7 +202,7 @@ const reduce = (f, acc, xs) =>
     : reduce(f, f(acc, first(xs)), rest(xs));
 ```
 
-NOTE: Since tail call optimization is currently only supported by Safari, [tail recursion](https://stackoverflow.com/questions/33923/what-is-tail-recursion) may cause stack overflow in most other JavaScript environments. While others, such as [the Chrome devs](https://bugs.chromium.org/p/v8/issues/detail?id=4698#c75), appear to be discussing the subject on-and-off, you may wish to, in this case, use a loop here to compromise:
+NOTE: Since tail call optimization is currently only supported by Safari, [tail recursion](https://stackoverflow.com/questions/33923/what-is-tail-recursion) may cause stack overflow in most other JavaScript environments. While others, such as [the Chrome devs](https://bugs.chromium.org/p/v8/issues/detail?id=4698#c75), appear to be discussing the subject on-and-off, you may wish to, in this case, use a loop here to compromise (and this is an example of balancing the triangle):
 
 ```js
 const reduce = function(reduceFn, accumulator, iterable){
@@ -269,6 +274,9 @@ const any = xs =>
 ```
 
 **[⬆ back to top](#quick-links)**
+
+*NOTE:* The following sections are considered somewhat advanced. You don't have to understand all the details of the jargons, but rather get an overall intuition on how you could abstract things so that they can compose well. You can start learning it [here](https://www.seas.upenn.edu/~cis194/spring13/lectures.html). This course is widely recommended by Haskell learners.
+
 
 ### Paramorphism
 
