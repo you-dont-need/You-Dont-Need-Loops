@@ -5,6 +5,8 @@
 
 Loops are one of the first constructs that junior programmers learn, but they can pose many potential issues in the software development process, and could be avoided in many cases.
 
+"Isn't this another loops vs recursions?" No, neither is particularly good in fact.
+
 Loops include `for`, `forEach`, `while`, `do`, `for...of` and `for...in`. You might argue that built in array methods such as `map` or `reduce` also uses loops. Well that's true, so we are going to define our own. In real life, you’d use a library or built in array methods, but it's good to start from scratch and understand the principles. The performance won't be great, you ask. Yes I heard you, and please read on for now.
 
 JavaScript is about trade-offs. There’s a tension between writing code that is performant, code that is maintainable and easy to understand, and code that is correct by construction. It's probably very hard to balance them and that's the source of debates in your pull requests.
