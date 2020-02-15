@@ -61,6 +61,11 @@ You are welcome to contribute with more items provided below.
 > &mdash;<cite>[Marco Emrich](https://twitter.com/marcoemrich), Software crafter, web dev, code coach, code retreat facilitator, author, consultant</cite>
 
 
+## ESLint Plugin
+
+There's a [rule](https://github.com/jfmengels/eslint-plugin-fp/blob/master/docs/rules/no-loops.md) in [eslint-plugin-fp](https://github.com/jfmengels/eslint-plugin-fp). There are also [many other useful rules](https://github.com/jfmengels/eslint-plugin-fp#rules) in the plugin so please do check them out!
+
+
 ## Potential problems :imp:
 
 | Name                                       | Off-by-one error | Infinite loop    | Statefulness     | Hidden intent    |
