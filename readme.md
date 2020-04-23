@@ -71,6 +71,7 @@ There's a [rule](https://github.com/jfmengels/eslint-plugin-fp/blob/master/docs/
 | Name                                       | Off-by-one error | Infinite loop    | Statefulness     | Hidden intent    |
 | ------------------------------------------ | ---------------- | ---------------- | ---------------- | ---------------- |
 | Loops                                      | Yes :scream:     | Yes :scream:     | Yes :scream:     | Yes :scream:     |
+| Iterables                                  | NO :green_heart: | NO :green_heart: | Yes :scream:     | Yes :scream:     |
 | Recursion (Without higher-order functions) | NO :green_heart: | Yes :scream:     | NO :green_heart: | Yes :scream:     |
 | Recursion (With higher-order functions)    | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
 | Corecursion                                | NO :green_heart: | NO :green_heart: | NO :green_heart: | NO :green_heart: |
