@@ -21,7 +21,7 @@ Loops have four main problems: [Off-by-one error](https://en.wikipedia.org/wiki/
 
 > Simple English: No refactoring
 
-Many developers hate it when there's change of requirements, because they have spent so much time on writing performant and bug-free code. When there's new requirements, you'll have to restructure your code and update your unit tests. Can you move your loops freely in your codebase? probably not, because there must be side effects or mutations. [Wholemeal programming](https://www.quora.com/What-is-wholemeal-programming) is a nice pattern to make code modular and reusable.
+Many developers hate it when there's change of requirements, because they have spent so much time on writing performant and bug-free code. When there's new requirements, you'll have to restructure your code and update your unit tests. Can you move your loops freely in your codebase? probably not, because there must be side effects or mutations. Long loops and nested loops are unavoidable because of performances and this breaks [rule of least power](https://en.wikipedia.org/wiki/Rule_of_least_power). Languages such as Haskll uses [fusion](https://stackoverflow.com/questions/38905369/what-is-fusion-in-haskell) to "merge" iterations. [Wholemeal programming](https://www.quora.com/What-is-wholemeal-programming) is a nice pattern to make code modular and reusable.
 
 ### Runtime performance
 
