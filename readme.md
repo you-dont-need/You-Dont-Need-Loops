@@ -27,7 +27,7 @@ Many developers hate it when there's change of requirements, because they have s
 
 You can write the most performant code with loops and everything. But is it still performant when there's change of requirements? Is your performant code understandable by other people? Is your code still performant once you've refactored your code? At a larger scale, Manual optimization reduces code reusability, modularity and makes components more complex. Code becomes harder to understand, and harder to test for correctness.
 
-*Keep in mind that your code will **CHANGE** and will be **read by your colleagues**. If you write throw away code, don't bother worry about these at all.*
+*Keep in mind that your code will **CHANGE** and will be **read by your colleagues**. If you write throw away code, don't bother worrying about code quality at all.*
 
 So, it's all about balancing the triangle. In modern engineering teams, 95% of the time you'd sacrifice performance for correctness and ergonomics since computers are fast enough and premature optimization is usually considered bad. But to replace loops, there will be huge performance hit and even stack overflow. While all three point are equally important, this article focuses more on correctness and ergonomics, and in real-world projects, you'll need to use your best knowledge to do the trade-offs. If you are interested in striving not to sacrifice any of these three, have a look at [Haskell](https://www.seas.upenn.edu/~cis194/spring13/lectures.html). It is designed from the ground up to be highly [performant](https://prog21.dadgum.com/40.html) in FP. 
 
