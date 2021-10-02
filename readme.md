@@ -38,6 +38,21 @@ You are welcome to contribute with more items provided below.
 * Please send a PR if you want to add or modify the code. No need to open an issue unless it's something big and you want to discuss.
 
 
+## Imperative VS Declarative
+
+Recursions are declarative whereas loops are imperative. So, if I want you to get me the (even numbers) list: [2,4,6,8,10]
+
+### Imperative
+
+In imperative, I would tell you the steps. First, take the first number in the list. Then divide by two. Then check the remainder. Do something if the remainder is 0. Then move on to the next number, etc etc. It's a loop and I tell you the steps in the loop. This causes statefulness problem (details below).
+
+### Declarative
+
+In declarative programming, I simply say, give me all the even numbers and I define even numbers as being one where if you divide it by 2 you get 0. That's it. I'm not telling you how to find out if a number is even. I'm simply defining it. There isn't even a state!
+
+https://www.quora.com/Why-doesnt-Haskell-have-loops-e-g-for-or-while/answer/Ava-Mastic
+
+
 ## Voice of Developers
 
 > [Early imperative languages didn't support recursion at all and even modern ones support it poorly, forcing them to use something else to iterate—loops. A combination of recursion and higher-order functions does the same thing but better and more naturally.](https://qr.ae/TWzG3O)
