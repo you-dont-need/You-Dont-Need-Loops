@@ -1,4 +1,4 @@
-# You don't (may not) need loops :loop:
+# You don't need loops :loop:
 [![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/you-dont-need/loops)
 
 ## Prerequisites: 
