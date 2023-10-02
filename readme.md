@@ -3,7 +3,7 @@
 
 [🇰🇷 한국어](./readme_kr.md)
 
-## Prerequisites: 
+## Prerequisites
 
 Junior programmers often start with loops as one of their initial programming constructs. However, loops can introduce various potential issues in the software development process and are sometimes unnecessary.
 
