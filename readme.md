@@ -41,19 +41,21 @@ We do expect some basic familiarity with functional programming concepts, and th
 
 Feel free to contribute additional insights and items to this discussion.
 
-## Imperative VS Declarative
+## Imperative vs. Declarative: A Paradigm Clash
 
-Recursions are declarative whereas loops are imperative. So, if I want you to get me the (even numbers) list: [2,4,6,8,10]
+Recursions embrace a declarative approach, while loops adhere to the imperative paradigm. Let's illustrate this difference by asking for a list of even numbers, specifically: `[2, 4, 6, 8, 10]`.
 
-### Imperative
+### Imperative Perspective
 
-In imperative, I would tell you the steps. First, take the first number in the list. Then divide by two. Then check the remainder. Do something if the remainder is 0. Then move on to the next number, etc etc. It's a loop and I tell you the steps in the loop. This causes statefulness problem (details below).
+In the imperative world, I'd provide you with a sequence of explicit steps. Start with the first number in the list, divide it by two, check if the remainder is zero, perform an action accordingly, then proceed to the next number, and so on. Essentially, it's a series of ordered instructions, akin to a loop. This approach introduces a statefulness problem, which we'll delve into shortly.
 
-### Declarative
+### Declarative Approach
 
-In declarative programming, I simply say, give me all the even numbers and I define even numbers as being one where if you divide it by 2 you get 0. That's it. I'm not telling you how to find out if a number is even. I'm simply defining it. There isn't even a state!
+On the declarative side of things, I'd simply state my requirement: "Give me all the even numbers." To further clarify, I define even numbers as those divisible by 2 with a remainder of 0. In essence, I'm not instructing you on how to determine whether a number is even; I'm merely providing a definition. There's no need for me to specify the process or maintain any state during this operation.
 
-https://www.quora.com/Why-doesnt-Haskell-have-loops-e-g-for-or-while/answer/Ava-Mastic
+### Comparison
+
+In summary, declarative programming excels at expressing what you want, leaving the "how" to be abstracted away. Imperative programming, on the other hand, spells out the detailed steps for achieving a goal, often leading to issues related to statefulness. For more insights on why Haskell, a declarative language, doesn't include traditional loops like "for" or "while," you can refer to this [Quora answer](https://www.quora.com/Why-doesnt-Haskell-have-loops-e-g-for-or-while/answer/Ava-Mastic).
 
 
 ## Voice of Developers
