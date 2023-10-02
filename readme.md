@@ -324,11 +324,13 @@ const para = (f, acc, xs) =>
 
 ```js
 const unfold = (f, seed) => {
-  const go = (f, seed, acc) => {
-    const res = f(seed);
-    return res ? go(f, res[1], acc.concat([res[0]])) : acc; 
+  const next = (f, val, acc) => {
+    if (!f(val)) return acc
+    const resVal = f(val);
+    acc.push(resVal[0])
+    return next(f, resVal[1], acc); 
   }
-  return go(f, seed, [])
+  return next(f, seed, [])
 }
 unfold(x => 
   x < 26
@@ -343,11 +345,11 @@ unfold(x =>
 ### Range
 
 ```js
-const range = (i, count) =>
-  unfold(x => (x <= count) 
-    ? [x, x+1]
+const range = (start, end) =>
+  unfold(val => (val <= end) 
+    ? [val, val + 1]
     : null
-, i);
+, start);
 range(5, 10)
 //=> [ 5, 6, 7, 8, 9, 10 ]
 ```
