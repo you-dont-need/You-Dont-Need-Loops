@@ -23,7 +23,9 @@ Loops present four primary challenges: [Off-by-one errors](https://en.wikipedia.
 
 > Simple English: No refactoring / Only change the code that's corresponding to the changes of the business logic
 
-Many developers hate it when there's change of requirements, because they have spent so much time on writing performant and bug-free code. When there's new requirements, you'll have to restructure your code and update your unit tests. Can you move your loops freely in your codebase? probably not, because there must be side effects or mutations. Big loops and nested loops are inevitable sometimes for performance reasons. You could do anything in a loop including uncontrolled side effects and therefore, it often breaks [rule of least power](https://en.wikipedia.org/wiki/Rule_of_least_power). Languages such as Haskell uses [fusion](https://stackoverflow.com/questions/38905369/what-is-fusion-in-haskell) to "merge" iterations. [Wholemeal programming](https://www.quora.com/What-is-wholemeal-programming) is a nice pattern to make code modular and reusable.
+Many developers find themselves frustrated when faced with changing requirements because they've invested substantial time in crafting high-performance, bug-free code. Adapting to new requirements entails significant code restructuring and updating unit tests. The flexibility to freely move loops within your codebase is often limited due to the potential for side effects or mutations. In some cases, large and nested loops become necessary for performance optimization, but they can introduce uncontrolled side effects, potentially violating the [rule of least power](https://en.wikipedia.org/wiki/Rule_of_least_power).
+
+Languages like Haskell employ a concept called [fusion](https://stackoverflow.com/questions/38905369/what-is-fusion-in-haskell) to effectively "merge" iterations, promoting more efficient code. Embracing the philosophy of [wholemeal programming](https://www.quora.com/What-is-wholemeal-programming) offers a valuable pattern for making code modular and reusable, facilitating easier adaptation to changing requirements.
 
 ### Runtime performance
 
