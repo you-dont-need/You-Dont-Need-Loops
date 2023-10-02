@@ -17,11 +17,11 @@ In the realm of JavaScript, trade-offs abound. There's an ongoing tension betwee
 
 > Simple English: No bugs
 
-Loops have four main problems: [Off-by-one error](https://en.wikipedia.org/wiki/Off-by-one_error), [Infinite loop](https://en.wikipedia.org/wiki/Infinite_loop), Statefulness and Hidden intent. You might argue loops like `for...in` won't have Off-by-one error, yes but it's still stateful and can hide intent. Recursions have some of the problems too.
+Loops present four primary challenges: [Off-by-one errors](https://en.wikipedia.org/wiki/Off-by-one_error), [Infinite loops](https://en.wikipedia.org/wiki/Infinite_loop), statefulness, and concealed intent. It could be argued that loops like `for...in` may not suffer from Off-by-one errors, but they still introduce statefulness and can obscure the underlying intent. Recursion, while an alternative, also carries its own set of challenges, including some of these same issues.
 
 ### Ergonomics and maintainability
 
-> Simple English: No refactoring
+> Simple English: No refactoring / Only change the code that's corresponding to the changes of the business logic
 
 Many developers hate it when there's change of requirements, because they have spent so much time on writing performant and bug-free code. When there's new requirements, you'll have to restructure your code and update your unit tests. Can you move your loops freely in your codebase? probably not, because there must be side effects or mutations. Big loops and nested loops are inevitable sometimes for performance reasons. You could do anything in a loop including uncontrolled side effects and therefore, it often breaks [rule of least power](https://en.wikipedia.org/wiki/Rule_of_least_power). Languages such as Haskell uses [fusion](https://stackoverflow.com/questions/38905369/what-is-fusion-in-haskell) to "merge" iterations. [Wholemeal programming](https://www.quora.com/What-is-wholemeal-programming) is a nice pattern to make code modular and reusable.
 
