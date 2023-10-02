@@ -213,7 +213,7 @@ const sum = list => {
       ? acc
       : go(acc + first(xs), rest(xs));
   return go(0, list) 
-
+}
 ```
 
 **[⬆ back to top](#quick-links)**
