@@ -29,18 +29,17 @@ Languages like Haskell employ a concept called [fusion](https://stackoverflow.co
 
 ### Runtime performance
 
-You can write the most performant code with loops and everything. But is it still performant when there's change of requirements? Is your performant code understandable by other people? Is your code still performant once you've refactored your code? At a larger scale, Manual optimization reduces code reusability, modularity and makes components more complex. Code becomes harder to understand, and harder to test for correctness.
+Creating highly performant code with loops is indeed possible, but it raises important questions: Will that code remain performant when requirements change? Can your high-performance code be comprehended easily by your colleagues? Does it retain its performance after refactoring? On a larger scale, manual optimization often leads to reduced code reusability, diminished modularity, and increased complexity in components. This complexity makes the code harder to grasp and testing for correctness becomes a daunting task.
 
-*Keep in mind that your code will **CHANGE** and will be **read by your colleagues**. If you write throw away code, don't bother worrying about code quality at all.*
+Remember, your code will inevitably evolve and will be read and maintained by your fellow developers. If you're writing throwaway code, concerns about code quality might not seem worthwhile.
 
-So, it's all about balancing the triangle. In modern engineering teams, 95% of the time you'd sacrifice performance for correctness and ergonomics since computers are fast enough and premature optimization is usually considered bad. But to replace loops, there will be huge performance hit and even stack overflow. While all three point are equally important, this article focuses more on correctness and ergonomics, and in real-world projects, you'll need to use your best knowledge to do the trade-offs. If you are interested in striving not to sacrifice any of these three, have a look at [Haskell](https://www.seas.upenn.edu/~cis194/spring13/lectures.html). It is designed from the ground up to be highly [performant](https://prog21.dadgum.com/40.html) in FP. 
+Hence, achieving a balance among the three elements of the triangle is crucial. In modern engineering teams, the prevailing wisdom suggests that 95% of the time, you should prioritize correctness and ergonomics over raw performance. Today's computers are generally fast enough, and premature optimization is often discouraged. However, replacing loops with alternative constructs can come at a significant performance cost, potentially leading to stack overflows in certain scenarios.
 
-We do expect you to know some very basic stuff about functional programming and there are many other articles online (EG: why ternary is used instead of `if`s, why you shouldn't mutate variables and Complexity/TCO, etc).
+While all three aspects—performance, correctness, and ergonomics—are equally important, this article primarily emphasizes the significance of correctness and ergonomics. In real-world projects, you'll need to rely on your expertise to strike the right trade-offs. If you're interested in exploring a language that strives not to compromise on any of these aspects, take a look at [Haskell](https://www.seas.upenn.edu/~cis194/spring13/lectures.html). It has been meticulously designed to excel in functional programming, offering high [performance](https://prog21.dadgum.com/40.html).
 
-You are welcome to contribute with more items provided below.
+We do expect some basic familiarity with functional programming concepts, and there are numerous additional resources available online, covering topics like why ternaries are used instead of `if` statements, the importance of avoiding variable mutations, and discussions on complexity and tail call optimization (TCO), among others.
 
-* Please send a PR if you want to add or modify the code. No need to open an issue unless it's something big and you want to discuss.
-
+Feel free to contribute additional insights and items to this discussion.
 
 ## Imperative VS Declarative
 
