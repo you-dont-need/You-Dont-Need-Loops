@@ -5,13 +5,13 @@
 
 ## Prerequisites
 
-Junior programmers often start with loops as one of their initial programming constructs. However, loops can introduce various potential issues in the software development process and are sometimes unnecessary.
+Junior programmers often begin by learning loops as a foundational programming construct. However, loops can introduce complexities and potential issues in software development, and sometimes they aren't necessary.
 
-You might wonder, "Is this another debate about loops versus recursion?" Well, neither approach is particularly ideal. Even "reduce" is considered somewhat low-level, and functional developers tend to use it sparingly. Nevertheless, it's crucial to understand where these expressive higher-order functions originate.
+You might ask, "Is this just another debate between loops and recursion?" Not exactly. Neither approach is always ideal. Even "reduce" is somewhat low-level, and functional developers tend to use it sparingly. Still, it's important to understand where these higher-order functions come from.
 
-Loops encompass various forms like "for," "forEach," "while," "do," "for...of," and "for...in." Some may argue that built-in array methods, such as "map" or "reduce," also rely on loops. That's accurate, but in this discussion, we'll define our own recursive functions. In practical scenarios, you'd typically use libraries or built-in array methods. Nonetheless, starting from scratch helps grasp the underlying principles, even though the performance may not be optimal. You may have concerns about performance, and I'll address them shortly.
+Loops take many forms: "for," "forEach," "while," "do," "for...of," and "for...in." While some argue that array methods like "map" or "reduce" rely on loops under the hood, that's beside the point for now. Here, we'll focus on creating our own recursive functions. In practice, you'd likely use libraries or built-in array methods, but building from scratch helps you understand the core concepts, even if it's not the most efficient approach. If you're worried about performance, don't worry—I'll address that soon.
 
-In the realm of JavaScript, trade-offs abound. There's an ongoing tension between writing code that's performant, code that's easy to maintain and understand, and code that's inherently correct. Striking the right balance can be challenging, leading to debates in your pull requests.
+In JavaScript, trade-offs are everywhere. There's a constant balancing act between writing performant code, code that's easy to maintain and understand, and code that's inherently correct. Finding the right balance can be tough, and it's often the source of debate in pull requests.
 
 ### Correctness by construction
 
